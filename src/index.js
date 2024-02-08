@@ -19,7 +19,8 @@ const apiParams = {
     radius: 200,
   };
 
-axios.get(apiUrl, { params: apiParams })
+  function apiCall() {
+    axios.get(apiUrl, { params: apiParams })
   .then(response => {
     const record = response.data.records;
     const recordSize = record.length;
@@ -38,3 +39,8 @@ axios.get(apiUrl, { params: apiParams })
   .catch(error => {
     console.error(error.message);
   });
+  }
+
+  module.exports = {
+    apiCall: apiCall
+};
